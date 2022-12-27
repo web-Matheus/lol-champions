@@ -1,0 +1,41 @@
+.skeleton-container{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    animation: skeleton 1s ease infinite alternate;
+  }
+  @keyframes skeleton{
+    to{
+        opacity: 0.5;
+    }
+  }
+.skeleton-card{
+    display: block;
+    width: 250px;
+    height: 300px;
+    top: 0;
+    cursor: pointer;
+    position: relative;
+    background-color: #f2f8f9;
+    border-radius: 4px;
+    opacity: .8;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+  }
+  .skeleton-img{
+    background-color: #f2f8f9;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px; */
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+  }
+  .skeleton-text{
+    display: block;
+    background-color: #e5e5e5;
+    width: 52px;
+    height: 2px;
+    border-radius: 1px;
+    margin: auto;
+    padding: 10px 20px;
+  }

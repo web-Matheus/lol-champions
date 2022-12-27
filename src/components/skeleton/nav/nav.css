@@ -1,0 +1,36 @@
+nav{
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    margin: 20px 0;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+li{
+    list-style: none;
+    padding-bottom: 0;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+li:before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: white;
+    border: 1px solid #4e5ed3;
+    box-shadow: 3px 3px 0px #bab5f8;
+    box-shadow: 3px 3px 0px #bab5f8;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 0px;
+}
+nav button{
+    background-color: #ffff;
+    border: none;
+    cursor: pointer;
+}
