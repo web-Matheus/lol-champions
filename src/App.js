@@ -1,27 +1,15 @@
-import React, { useState, useEffect} from 'react';
-import axios from 'axios'
+import React from 'react';
 
+import { BrowserRouter , Routes, Route} from 'react-router-dom';
 import './App.css';
-import Skeleton from './components/skeleton/skeleton';
+
 
 import Logo from "./assets/riot-logo.png"
-import NavBar from './components/skeleton/nav/nav';
+import Home from './components/home/home';
+import ChampionInfor from './components/championInfor/championInfor'
+
 
 function App() {
-  const [dadosApi, setDadosApi] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchApi = () => {
-    axios.get("http://localhost:3001/")
-      .then((res) => {
-       setDadosApi(res.data.data)
-       setIsLoading(false)
-      })
-  }
-
-  useEffect(() =>{
-    fetchApi();
-  },[])
 
   return (
     <div>
@@ -31,21 +19,12 @@ function App() {
         <span>league of legends champions</span>
       </header>
 
-      <NavBar/>
-      
-      <section className='container'>
-        {isLoading ? <Skeleton/> : Object.values(dadosApi).map((element,key) =>{
-        return(
-           <div key={key} className="card-champion">
-            <img alt={`Imagem do champeão ${element.name}`}
-            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${element.name}_0.jpg`}/>
-            <div class="go-arrow">
-              <h3>{element.name}</h3>
-            </div>
-           </div>
-        )
-      })}
-      </section>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/:id' element={<ChampionInfor/>}/>
+        </Routes>
+      </BrowserRouter>
       
       
     </div>
