@@ -40,7 +40,7 @@ function Home() {
             <img alt={`Imagem do champeão ${element.name}`} 
             loading="lazy" 
             src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${element.name}_0.jpg`}/>
-            <div class="go-arrow">
+            <div class="infor">
               <h3>{element.name}</h3>
                 <Link to={element.name}>go</Link>
             </div>

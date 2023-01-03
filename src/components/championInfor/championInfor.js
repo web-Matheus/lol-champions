@@ -1,35 +1,45 @@
 import React, { useState, useEffect} from 'react'
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
+import "./championInfor.css"
 
 function ChampionInfor(){
 
   const[ChampionData, setChampionData] = useState({})
-  
-  const params = useParams();
-    
-  const[id] = useState(params.id)
+  const { id } = useParams();
 
- 
+  const getChampion = (id) =>{
+     axios.get("http://localhost:3001/")
+      .then((res) => {
+        setChampionData(res.data.data[id])
+      })
+  }
+
    useEffect(() =>{
 
-    axios.get("http://localhost:3001/")
-        .then((res) => {
-         setChampionData(res.data.data)
-  
-   },[])
+    getChampion(id)
 
-  }) 
+   },[id])
+
   return (
-    <div>
-      {Object.values(ChampionData).map((element,key) =>{
-        return(
-          <div className='champ' key={key}>
-            <h4>{element.title}</h4>
-            <p>{element.blurb}</p>
+    <div className='container-champion'>
+          <div className='champion-infor'>
+            <img 
+            src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${ChampionData.name}_0.jpg`}
+            alt={ChampionData.name}
+            />
+            <div className='infor-text'>
+                <h4>{ChampionData.title}</h4>
+                <h2>{ChampionData.name}</h2>
+            </div> 
+            <div className='box-infor'>
+              <strong>{ChampionData.tags}</strong>
+              <div className='line'></div>
+              <p>{ChampionData.blurb}</p>
+            </div>
           </div>
-        )
-      })}
+       
     </div>
   )
 }

@@ -1,0 +1,25 @@
+.infor-text{
+    text-align: center;    
+}
+.box-infor{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 calc(100px - 10px);
+    height: 200px;
+    border: solid 1px;
+    margin-bottom: 20px;
+    text-size-adjust: 100%;
+    text-align: center;
+    line-height: 1.15rem;
+    box-align: center;
+}
+.box-infor p{
+    max-width: 20%;
+}
+.line{
+    height: 50px;
+    width: 1px;
+    margin: 0px auto;
+    background-color: black;
+}
